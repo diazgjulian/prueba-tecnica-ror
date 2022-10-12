@@ -1,0 +1,15 @@
+
+  <article class="search">
+
+    <%# <input field='search'> %>
+    <%= link_to "Resultado aleatorio", random_index_path %>
+    
+    <p><%= @random_fact %></p>
+
+  </article>
+
+  <article class="result">
+    
+    <%= render 'forms/mail_form', fact: @random_fact, query: 'random' %>
+
+  </article>

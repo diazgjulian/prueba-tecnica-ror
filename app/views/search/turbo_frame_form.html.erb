@@ -1,0 +1,23 @@
+
+  <article class="result">
+
+    <%= render 'forms/mail_form', fact: @facts_list, query: local_assigns[:search] %>
+
+  </article>
+
+  <article class="search">
+
+    <%# <input field='search'> %>
+    <%= turbo_frame_tag 'anyframe' do %>        
+      <%= form_with scope: :any, url: search_turbo_frame_submit_path, local: true do |form| %>
+          <%= form.label :search, 'Inserte palabras a buscar', 'class' => 'my-0  d-inline'  %>
+          <%= form.text_field :search, type: 'search', 'required' => 'true', 'value' => "#{local_assigns[:search] || ''}",  'aria-describedby' => 'search' %>
+          <%= form.submit 'Buscar', 'id' => 'submit-search' %>
+      <% end %>
+        <% for fact in @facts_list %>
+          <p><%= fact %></p>
+        <% end %> 
+    <% end %>
+    
+    <%= render "pager", pagy: @pagy_a %>
+  </article>

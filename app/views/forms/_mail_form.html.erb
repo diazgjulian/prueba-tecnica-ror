@@ -1,0 +1,17 @@
+<%
+
+pp @query
+pp @query
+pp @query
+pp @query
+pp @query
+
+
+%>
+<%= form_for create_query_path(@query) do |form| %>
+  <%= label :email, 'Introduzca su direccion de email' %>
+  <%= form.text_field :email %>
+  <%= form.hidden_field :query, value: query if !query.blank? %>
+  <%= form.hidden_field :fact, value: fact %>
+  <%= form.submit 'Enviar por email' %>
+<% end %>

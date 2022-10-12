@@ -1,0 +1,21 @@
+
+  <article class="result">
+
+    <%= render 'forms/mail_form', fact: @category_fact, query: local_assigns[:search] %>
+
+  </article>
+  
+  <article class="search">
+
+    <%= turbo_frame_tag 'anyframe' do %>        
+      <%= form_with scope: :any, url: category_turbo_frame_submit_path, local: true do |form| %>
+          <%= form.label :category, 'Inserte palabras a buscar', 'class' => 'my-0  d-inline'  %>
+          <%= form.select( :category, [['-- Selecciona categoria --', '']] + @categories.each_with_index{|k,i| [i, k.to_s]}, {selected:local_assigns[:category]}, {class: '','required' => 'true', 'value' => "#{local_assigns[:category] || ''}", 'aria-describedby' => 'category'} ) %>
+          <%= form.submit 'Buscar', 'id' => 'submit-search' %>
+      <% end %>
+      <p><%= @category_fact %></p>
+    <% end %>
+
+  </article>
+
+  

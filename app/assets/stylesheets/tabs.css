@@ -1,0 +1,19 @@
+.tabs {
+  grid-area: 1 / 1 / 2 / 4;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  border-bottom: 5px solid #e8e8e8;
+  
+}
+
+.tab{
+  background-color: #e8e8e8;
+  padding: 5px 10px 0 10px;
+  border-radius: 5px 5px 0 0;
+  border-right: 2px solid white;
+}
+.selected{
+  border-bottom: 5px solid #e8e8e8;
+  box-shadow: -3px -3px 12px #c5c5c5
+}

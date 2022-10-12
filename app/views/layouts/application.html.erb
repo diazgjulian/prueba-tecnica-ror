@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Railsondocker</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <section>
+
+      <article class="tabs">
+
+        <%= link_to "Busqueda", search_index_path, class: "tab #{'selected' if controller_name == 'search' }" %>
+        <%= link_to "Busqueda por Categorias", category_index_path, class: "tab #{'selected' if controller_name == 'category' }" %>
+        <%= link_to "Resultado aleatorio", random_index_path, class: "tab #{'selected' if controller_name == 'random' }" %>
+
+      </article>
+      <%= yield %>
+      
+    </section>
+  </body>
+</html>
+

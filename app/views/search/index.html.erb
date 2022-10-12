@@ -1,0 +1,15 @@
+
+
+
+  <article class="search">
+
+    <%= turbo_frame_tag 'anyframe', autoscroll: "true" do %>        
+      <%= form_with scope: :any, url: search_turbo_frame_submit_path, local: true do |form| %>
+          <%= form.label :search, 'Inserte palabras a buscar', 'class' => 'my-0  d-inline'  %>
+          <%= form.text_field :search, type: 'search', 'required' => 'true', 'value' => "#{local_assigns[:search] || ''}",  'aria-describedby' => 'search' %>
+          <%= form.submit 'Buscar', 'id' => 'submit-search' %>
+      <% end %>
+    <% end %>
+
+  </article>
+

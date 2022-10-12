@@ -1,0 +1,12 @@
+  <article class="search">
+
+    <%# <input field='search'> %>
+    <%= turbo_frame_tag 'anyframe' do %>        
+      <%= form_with scope: :any, url: category_turbo_frame_submit_path, local: true do |form| %>
+          <%= form.label :category, 'Inserte palabras a buscar', 'class' => 'my-0  d-inline'  %>
+          <%= form.select(:category, [['-- Selecciona categoria --', '']] + @categories.each_with_index{|k,i| [i, k.to_s]}, {}, {class: '','required' => 'true', 'value' => "#{local_assigns[:category] || ''}",  'aria-describedby' => 'category'}) %>
+          <%= form.submit 'Buscar', 'id' => 'submit-search' %>
+      <% end %>
+    <% end %>
+
+  </article>

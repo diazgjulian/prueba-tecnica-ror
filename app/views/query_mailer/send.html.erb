@@ -1,0 +1,13 @@
+
+  <h1>Estos son los resultados de tu búsqueda</h1>
+  <p>
+      Tu parametro de busqueda fue: <%= @query.query %>
+  </p>
+
+  <p>
+    Obtuviste como respuesta: <br>
+    <% for result in @query.results %>
+      <%= result %> <br>
+    <% end %>
+
+  </p>
