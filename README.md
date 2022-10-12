@@ -1,74 +1,28 @@
-![Ruby](https://github.com/ryanwi/rails7-on-docker/workflows/Ruby/badge.svg)
+Hay que desarrollar un buscador de facts de Chuck Norris que se obtienen de la API https://api.chucknorris.io/
 
-# Rails 7 on Docker demo application
+El buscador tendrá las siguientes características:
 
-This app demonstrates Rails 7 with PostgreSQL, import maps, turbo, stimulus and hotwire, all running in Docker.
+No necesita login, es abierto.
+Se permitirá buscar por:
+Palabras.
+Categorías.
+De manera aleatoria.
+Los resultados se mostrarán paginados.
+Cada búsqueda junto con los resultados obtenidos se guardarán en base de datos.
+Existirá la opción de introducir una cuenta de email para que se envíen los resultados de la búsqueda.
+La aplicación estará disponible en castellano e inglés (los contenidos extraídos de la API no es necesario traducirlos, se pueden presentar en inglés).
 
-**NOTE:** [There is also an example Rails 6 application working in Docker with Webpacker](https://github.com/ryanwi/rails-on-docker)
+La estructura y el diseño de la página y de los correos son completamente libres, al igual que el modelo de datos para guardar la información. Se puede añadir cualquier otra funcionalidad o mejora que se considere.
 
-## Features
+Forma de entrega: subirlo a un repositorio público de GitHub o Bitbucket incluyendo una carpeta con algunas capturas de pantalla de la solución desarrollada y una pequeña explicación sobre la solución planteada en el Readme.
 
-* Rails 7
-* Ruby 3
-* Dockerfile and Docker Compose configuration
-* PostgreSQL database
-* Redis
-* GitHub Actions for 
-  * tests
-  * Rubocop for linting
-  * Security checks with [Brakeman](https://github.com/presidentbeef/brakeman) and [bundler-audit](https://github.com/rubysec/bundler-audit)
-* Dependabot for automated updates
+Ruby 3.1.1
+Ruby on Rails 7
+PostgreSQl
 
-## Initial setup
-```
-cp .env.example .env
-docker compose build
-docker compose run --rm web bin/rails db:setup
-```
-
-## Running the Rails app
-```
-docker compose up
-```
-
-## Running the Rails console
-When the app is already running with `docker-compose` up, attach to the container:
-```
-docker compose exec web bin/rails c
-```
-
-When no container running yet, start up a new one:
-```
-docker compose run --rm web bin/rails c
-```
-
-## Running tests
-```
-docker compose run --rm web bin/rspec
-```
-
-## Updating gems
-```
-docker compose run --rm web bundle update
-docker compose up --build
-```
-
-## Credits/References
-
-### Rails with Docker
-* [Quickstart: Compose and Rails](https://docs.docker.com/compose/rails/)
-* [Docker for Rails Developers
-Build, Ship, and Run Your Applications Everywhere](https://pragprog.com/titles/ridocker/docker-for-rails-developers/)
-* [Ruby on Whales:
-Dockerizing Ruby and Rails development](https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development)
-
-### Rails 7 with importmaps 
-
-* [Alpha preview: Modern JavaScript in Rails 7 without Webpack](https://www.youtube.com/watch?v=PtxZvFnL2i0)
-
-### Rails 7 with hotwire
-
-* [Stimulus 3 + Turbo 7 = Hotwire 1.0](https://world.hey.com/dhh/stimulus-3-turbo-7-hotwire-1-0-9d507133)
-* [Turbo 7](https://world.hey.com/hotwired/turbo-7-0dd7a27f)
-* [Rails 7 will have three great answers to JavaScript in 2021+](https://world.hey.com/dhh/rails-7-will-have-three-great-answers-to-javascript-in-2021-8d68191b)
-* [Hotwire Turbo Replacing Rails UJS](https://www.driftingruby.com/episodes/hotwire-turbo-replacing-rails-ujs)
+para iniciar aplicacion:
+docker-compose build
+docker-compose up
+docker-compose run app rails db:create
+docker-compose run app rake db:migrate
+Se accede a traves de localhost:3000
